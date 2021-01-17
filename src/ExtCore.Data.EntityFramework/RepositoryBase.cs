@@ -1,6 +1,7 @@
 ﻿// Copyright © 2017 Dmitry Sikorsky. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using Benriya.Share.Abstractions;
 using ExtCore.Data.Abstractions;
 using ExtCore.Data.Entities.Abstractions;
 using Microsoft.EntityFrameworkCore;
@@ -15,15 +16,17 @@ namespace ExtCore.Data.EntityFramework
   {
     protected DbContext storageContext;
     protected DbSet<TEntity> dbSet;
+    protected IRequestServices Client;
 
     /// <summary>
     /// Sets the Entity Framework storage context that represents the physical storage to work with.
     /// </summary>
     /// <param name="storageContext">The Entity Framework storage context to set.</param>
-    public void SetStorageContext(IStorageContext storageContext)
+    public void SetStorageContext(IStorageContext storageContext,IRequestServices client)
     {
       this.storageContext = storageContext as DbContext;
       this.dbSet = this.storageContext.Set<TEntity>();
+    this.Client = client;
     }
   }
 }

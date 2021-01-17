@@ -32,5 +32,15 @@ namespace ExtCore.Infrastructure
     /// Gets the authors of the extension (separated by commas).
     /// </summary>
     string Authors { get; }
-  }
+
+    /// <summary>
+    /// Gets the heplper of the extension.
+    /// </summary>
+    string Helper { get; }
+
+    /// <summary>
+    /// Gets the policy code of the extension.
+    /// </summary>
+    string Code { get; }
+    }
 }

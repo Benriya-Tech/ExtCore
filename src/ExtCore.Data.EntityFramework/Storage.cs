@@ -3,6 +3,7 @@
 
 using System;
 using System.Threading.Tasks;
+using Benriya.Share.Abstractions;
 using ExtCore.Data.Abstractions;
 using ExtCore.Infrastructure;
 using Microsoft.EntityFrameworkCore;
@@ -16,17 +17,19 @@ namespace ExtCore.Data.EntityFramework
   /// </summary>
   public class Storage : IStorage
   {
-    /// <summary>
-    /// Gets the Entity Framework storage context.
-    /// </summary>
-    public IStorageContext StorageContext { get; private set; }
+        public IRequestServices Client { get; private set; }
+        /// <summary>
+        /// Gets the Entity Framework storage context.
+        /// </summary>
+        public IStorageContext StorageContext { get; private set; }
 
-    public Storage(IStorageContext storageContext)
+    public Storage(IStorageContext storageContext,IRequestServices client)
     {
       if (!(storageContext is DbContext))
         throw new ArgumentException("The storageContext object must be an instance of the Microsoft.EntityFrameworkCore.DbContext class.");
 
       this.StorageContext = storageContext;
+        this.Client = client;
     }
 
     /// <summary>
@@ -39,7 +42,7 @@ namespace ExtCore.Data.EntityFramework
       TRepository repository = ExtensionManager.GetInstance<TRepository>();
 
       if (repository != null)
-        repository.SetStorageContext(this.StorageContext);
+        repository.SetStorageContext(this.StorageContext,this.Client);
 
       return repository;
     }

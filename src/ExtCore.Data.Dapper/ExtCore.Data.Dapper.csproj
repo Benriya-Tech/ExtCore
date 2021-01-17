@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\BenriyaCore\Benriya.Share\Benriya.Share.csproj" />
     <ProjectReference Include="..\ExtCore.Data.Abstractions\ExtCore.Data.Abstractions.csproj" />
     <ProjectReference Include="..\ExtCore.Data.Entities.Abstractions\ExtCore.Data.Entities.Abstractions.csproj" />
     <ProjectReference Include="..\ExtCore.Infrastructure\ExtCore.Infrastructure.csproj" />

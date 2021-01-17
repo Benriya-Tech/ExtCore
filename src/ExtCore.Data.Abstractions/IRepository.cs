@@ -1,6 +1,9 @@
 ﻿// Copyright © 2015 Dmitry Sikorsky. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using Benriya.Share.Abstractions;
+using MapsterMapper;
+
 namespace ExtCore.Data.Abstractions
 {
   /// <summary>
@@ -12,6 +15,6 @@ namespace ExtCore.Data.Abstractions
     /// Sets the storage context to work with.
     /// </summary>
     /// <param name="storageContext">The storage context to set.</param>
-    void SetStorageContext(IStorageContext storageContext);
+    void SetStorageContext(IStorageContext storageContext,IRequestServices client);
   }
 }

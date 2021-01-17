@@ -32,5 +32,14 @@ namespace ExtCore.Infrastructure
     /// Gets the authors of the extension (separated by commas).
     /// </summary>
     public virtual string Authors => null;
-  }
+    /// <summary>
+    /// Gets the heplper of the extension.
+    /// </summary>
+    public virtual string Helper => null;
+
+    /// <summary>
+    /// Gets the policy name of the extension.
+    /// </summary>
+    public virtual string Code => null;
+    }
 }

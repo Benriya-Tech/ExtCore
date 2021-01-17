@@ -1,6 +1,7 @@
 ﻿// Copyright © 2015 Dmitry Sikorsky. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using Benriya.Share.Abstractions;
 using System.Threading.Tasks;
 
 namespace ExtCore.Data.Abstractions
@@ -12,11 +13,11 @@ namespace ExtCore.Data.Abstractions
   /// </summary>
   public interface IStorage
   {
+    IRequestServices Client { get; }
     /// <summary>
     /// Gets the underlying storage context used by this storage.
     /// </summary>
     IStorageContext StorageContext { get; }
-
     /// <summary>
     /// Gets a repository of the given type.
     /// </summary>
